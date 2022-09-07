@@ -18,9 +18,7 @@ var EtudiantSchema = ({
         type: String,
         enum : ['Activé','Desactivé'],
         default: 'Activé'
-    }
-    
-    
+    }      
 })
 
 

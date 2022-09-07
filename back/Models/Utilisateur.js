@@ -19,9 +19,7 @@ var UtilisateurSchema = ({
         type: String,
         enum : ['Activé','Desactivé'],
         default: 'Activé'
-    }
-    
-    
+    } 
 })
 
 
