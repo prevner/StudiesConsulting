@@ -12,14 +12,15 @@ var OperationSchema = ({
     'Procedure' : {
         type: Schema.Types.ObjectId,
         ref: 'Procedure'
-    },
-    'TypeOperation' : {
-        type: Schema.Types.ObjectId,
-        ref: 'TypeOperation'
-    },
+    },   
     'Etudiant' : {
         type: Schema.Types.ObjectId,
         ref: 'Etudiant'
+    },
+    'TypeOperation': {
+        type: String,
+        enum : ['Recette','Dépense'],
+        default: 'Recette'
     }
 })
 
