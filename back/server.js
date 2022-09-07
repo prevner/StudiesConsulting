@@ -20,7 +20,8 @@ mongoose.connect(process.env.DATABASE,{useNewUrlParser: true, useUnifiedTopology
 
 
 let UtilisateurRouter = require('./Routes/UtilisateurRoutes')
- let ProcedureRouter = require('./Routes/ProcedureRoutes') 
+let ProcedureRouter = require('./Routes/ProcedureRoutes') 
+let EtudiantRouter = require('./Routes/EtudiantRoutes') 
 let indexRouter = require('./Routes/index');
 
 
@@ -44,7 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter)
 app.use('/api/utilisateurs', UtilisateurRouter)
- app.use('/api/procedure', ProcedureRouter) 
+ app.use('/api/etudiant', EtudiantRouter) 
+app.use('/api/procedure', ProcedureRouter) 
 
 
 //je gère la partie de ma documentation
@@ -61,7 +63,7 @@ const swaggerOptions ={
         }
       ]
     },
-    apis: ['./Routes/UtilisateurRoutes*.js','./Routes/ProcedureRoutes*.js']
+    apis: ['./Routes/UtilisateurRoutes*.js','./Routes/ProcedureRoutes*.js','./Routes/EtudiantRoutes*.js']
 }
 const swaggerDocs  = swaggerJsdoc(swaggerOptions)
 

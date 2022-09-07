@@ -97,4 +97,69 @@ router.post('/login', UtilisateurControlleur.login)
 */
 router.get('/list', UtilisateurControlleur.list)
 
+/**
+ * @swagger
+ * /api/utilisateurs/{id}:
+ *   put:
+ *     summary : modifier un utilisateur  à partir de son Id
+ *     consumes:
+ *          - application/json
+ *     tags: [Utilisateurs] 
+ *     parameters:            
+ *          - in: path
+ *            name: id           
+ *          - in: body
+ *            name: utilisateurs
+ *            description: modifier un utilisateur
+ *            schema:
+ *              type: object
+ *              required:
+ *                - email
+ *                - password
+ *              properties:
+ *                  nom:
+ *                   type: string
+ *                  prenom:
+ *                   type: string
+ *                  email:
+ *                   type: string
+ *                  adresse:
+ *                   type: string
+ *                  tel:
+ *                   type: string
+ *                  password:
+ *                   type: string
+ *                  userType:
+ *                   type: string
+ *     responses:
+ *       200:
+ *         description: projet modifié
+ *       400:
+ *         description: projet non modifié
+ *       500:
+ *         description: erreur de récupération
+ */
+ router.put('/:id', UtilisateurControlleur.update)
+
+ /**
+ * @swagger
+ * /api/utilisateurs/{id}:
+ *   get:
+ *     summary : Récupérer la description d'un Utilisateurs par Id
+ *     tags: [Utilisateurs]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ 
+ *     responses:
+ *       200:
+ *         description: description du Utilisateurs
+ *       500:
+ *         description:   erreur de recuperation
+ *       404:
+ *         description: Le Utilisateurs n'est pas trouvé
+ */
+
+router.get('/:id', UtilisateurControlleur.listOne)
+
 module.exports = router

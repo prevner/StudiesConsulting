@@ -12,7 +12,8 @@ module.exports = {
                 tel: req.body.tel,
                 tuteur: req.body.tuteur,
                 telTuteur: req.body.telTuteur,                
-                adresseTuteur: req.body.adresseTuteur
+                adresseTuteur: req.body.adresseTuteur,
+                
             })
 
            
@@ -57,7 +58,22 @@ module.exports = {
                 Etudiant: MonIdEt
             })
 
+            newConcerner.save((err, Concerner)=>{
+                if (err) {
+                    return res.status(500).json({
+                        status: 400,
+                        message: err
+                    })
+                }
+                return res.status(201).json({
+                    status: 201,
+                    message: 'Procedure crée'
+                })
+            })
+
 
         
     }
 }
+
+

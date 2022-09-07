@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 var ConcernerSchema = ({
     'datecreation' : {type:Date, default: Date.now},    
     'Procedure' : {
-        type: [ {proc : Schema.Types.ObjectId, ref: 'Procedure'}],
+        type: [ {proc : Schema.Types.ObjectId}],ref: 'Procedure'
         
     },
     'Etudiant' : {
@@ -13,4 +13,4 @@ var ConcernerSchema = ({
     }
 })
 
-module.exports = mongoose.model('Concerner', Concerner)
+module.exports = mongoose.model('Concerner', ConcernerSchema)

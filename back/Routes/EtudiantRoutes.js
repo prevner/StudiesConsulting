@@ -31,10 +31,10 @@ var EtudiantController = require('../controllers/EtudiantControlleur')
  *                   type: string
  *                  adresseTuteur:
  *                   type: string
- *                  categorie:
- *                   type: string
- *                  categorie:
- *                   type: string
+ *                  montant:
+ *                   type: number
+ *                  
+ *                   
  *     responses:
  *       200:
  *         description: Etudiant modifié
@@ -44,3 +44,5 @@ var EtudiantController = require('../controllers/EtudiantControlleur')
  *         description: erreur de récupération
  */
  router.post('/add', EtudiantController.add)
+
+ module.exports = router

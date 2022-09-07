@@ -18,6 +18,7 @@ module.exports = {
                 email: req.body.email,
                 adresse: req.body.adresse,
                 tel: req.body.tel,
+                userType : req.body.userType,
                 password: hash
             })
             let id = newUtilisateur._id
@@ -30,10 +31,10 @@ module.exports = {
                 }
                 /* let id = newUtilisateur._id
             console.log({_id}) */
-                /* return res.status(201).json({
+                return res.status(201).json({
                     status: 201,
                     message: 'Utilisateur  créer !'
-                }) */
+                }) 
             })
 
             
@@ -91,6 +92,67 @@ module.exports = {
                 status: 200,
                 utilisateur: utilisateurs,
                 message: 'liste des utilisateurs'
+            })
+        })
+    },
+
+    update: (req, res)=>{
+        const id = req.params.id
+        UtilisateurModel.findOne({_id: id}, (err, utilisateur)=>{
+            if (err) {
+                return res.status(500).json({
+                    status: 500,
+                    message: 'erreur de recuperation',
+                    error: err
+                })
+            }
+            if (!utilisateur) {
+                return res.status(404).json({
+                    status: 404,
+                    message: 'cet utilisateur est introuvable'
+                })
+            }
+            utilisateur.nom = req.body.nom ? req.body.nom : utilisateur.nom
+            utilisateur.prenom = req.body.prenom ? req.body.prenom : utilisateur.prenom
+            utilisateur.email = req.body.email ? req.body.email : utilisateur.email
+            utilisateur.userType= req.body.userType ? req.body.userType : utilisateur.userType
+            utilisateur.password= req.body.password ? req.body.password : utilisateur.password
+
+            utilisateur.save((err, utilisateur)=>{
+                if (err) {
+                    return res.status(500).json({
+                        status: 500,
+                        message: 'erreur de recuperation',
+                        error: err
+                    })
+                }
+                return res.status(200).json({
+                    status: 200,
+                    message: 'utilisateur modifié'
+                })
+                
+            })
+        })
+    },
+    listOne: (req, res)=>{
+        const id = req.params.id
+
+        UtilisateurModel.findOne({_id: id}, (err, utilisateur)=>{
+            if (err) {
+                return res.status(500).json({
+                    status: 500,
+                    message: 'erreur de recuperation'
+                })
+            }
+            if(!utilisateur){
+                return res.status(404).json({
+                    status: 404,
+                    message: 'ce utilisateur est introuvable'
+                })
+            }
+            return res.status(200).json({
+                status: 200,
+                utilisateur: utilisateur
             })
         })
     }
