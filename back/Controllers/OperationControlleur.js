@@ -1,15 +1,14 @@
 var OperationModel = require('../models/Operation')
+var ConcernerModel = require('../models/Concerner')
 
 
 module.exports = {
     add: (req, res)=>{
             var newOperation = new OperationModel({
-                titre: req.body.titre,
                 description: req.body.description,
                 montant: req.body.montant,
-                duree: req.body.duree,
-                PorteurID: req.body.PorteurID,
-                categorie: req.body.categorie
+                Procedure: req.body.PorteurID,
+                Utilisateur: req.body.Utilisateur
             })
             newOperation.save((err, Operation)=>{
                 if (err) {
@@ -42,7 +41,7 @@ module.exports = {
                   message: 'ce Operation est introuvable'
               })
           }
-          Operation.titre = req.body.titre ? req.body.titre: Operation.titre
+          Operation.description = req.body.titre ? req.body.titre: Operation.titre
           Operation.description = req.body.description ? req.body.description: Operation.description
           Operation.montant = req.body.montant ? req.body.montant: Operation.montant
           Operation.duree = req.body.duree ? req.body.duree: Operation.duree

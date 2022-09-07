@@ -20,6 +20,7 @@ module.exports = {
                 tel: req.body.tel,
                 password: hash
             })
+            let id = newUtilisateur._id
             newUtilisateur.save((err, user)=>{
                 if (err) {
                     return res.status(400).json({
@@ -27,13 +28,16 @@ module.exports = {
                         message: err.message
                     })
                 }
-                let id = newUtilisateur._id
-            console.log({_id})
-                return res.status(201).json({
+                /* let id = newUtilisateur._id
+            console.log({_id}) */
+                /* return res.status(201).json({
                     status: 201,
                     message: 'Utilisateur  créer !'
-                })
+                }) */
             })
+
+            
+            console.log({id})
             
         })
     },

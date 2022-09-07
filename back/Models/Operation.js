@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 var OperationSchema = ({
-    'description' : {type: String, require: false},
+    'description' : {type: String, 
+                    default : 'inscription'},
     'montant' : {type: Number, require: false},
     'datecreation' : {type:Date, default: Date.now},
     'Utilisateur' : {
