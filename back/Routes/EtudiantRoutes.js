@@ -25,24 +25,48 @@ var EtudiantController = require('../controllers/EtudiantControlleur')
  *                   type: string
  *                  tel:
  *                   type: string
- *                  string:
- *                   tuteur: string
+ *                  tuteur: 
+ *                   type: string
  *                  telTuteur:
  *                   type: string
  *                  adresseTuteur:
  *                   type: string
- *                  montant:
+ *                  montont:
  *                   type: number
- *                  
+ *                  niveau:
+ *                   type: string
+ *                                     
  *                   
  *     responses:
  *       200:
- *         description: Etudiant modifié
+ *         description: Etudiant enrégistré
  *       400:
- *         description: Etudiant non modifié
+ *         description: Echec d'enrégistrement
  *       500:
  *         description: erreur de récupération
  */
  router.post('/add', EtudiantController.add)
+
+
+ /**
+* @swagger
+*  /api/Etudiants/:
+*   get:
+*     summary : Récupérer la liste des Etudiants 
+*     tags: [Etudiant]
+*     responses:
+*       200:
+*         description: liste des Etudiants
+*       500:
+*         description:   erreur de recuperation
+*       404:
+*         description: Liste des Etudiants vides
+* 
+*/
+
+
+
+router.get('/', EtudiantController.getAllEtudiant)
+
 
  module.exports = router

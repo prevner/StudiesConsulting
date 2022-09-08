@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter)
 app.use('/api/utilisateurs', UtilisateurRouter)
- app.use('/api/etudiant', EtudiantRouter) 
+ app.use('/api/etudiants', EtudiantRouter) 
 app.use('/api/procedure', ProcedureRouter) 
 
 
