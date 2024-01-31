@@ -16,7 +16,7 @@ module.exports = {
             })         
             
 
-            //enreégistrement de mon étudiant
+            //enrégistrement de mon étudiant
             newEtudiant.save((err, Etudiant)=>{
                 if (err) {
                     return res.status(500).json({
@@ -39,10 +39,8 @@ module.exports = {
 
             
 
-            
-          /* console.log(req.body)  */
         
-          let test = [MonIdEt,MonIdEt]; 
+          /* let test = [MonIdEt,MonIdEt];  */
          
          
             let newConcerner = new ConcernerModel({               
